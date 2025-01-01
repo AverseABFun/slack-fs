@@ -2,7 +2,7 @@
 .PHONY: default modules_install
 
 KDIR ?= kernel-build
-LLVM ?= 1
+LLVM ?= 0
 
 default:
 	$(MAKE) -C $(KDIR) M=$$PWD LLVM=$(LLVM)
