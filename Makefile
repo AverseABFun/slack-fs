@@ -2,12 +2,10 @@
 .PHONY: default modules_install
 
 KDIR ?= kernel-build
+LLVM ?= 1
 
 default:
-	$(MAKE) -C $(KDIR) M=$$PWD LLVM=1
+	$(MAKE) -C $(KDIR) M=$$PWD LLVM=$(LLVM)
 
 modules_install: default
-	$(MAKE) -C $(KDIR) M=$$PWD LLVM=1 modules_install
-
-rust-analyzer:
-	$(MAKE) -C $(KDIR) M=$$PWD LLVM=1 rust-analyzer
+	$(MAKE) -C $(KDIR) M=$$PWD LLVM=$(LLVM) modules_install
